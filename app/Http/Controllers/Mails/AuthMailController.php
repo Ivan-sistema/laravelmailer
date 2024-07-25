@@ -18,8 +18,8 @@ class AuthMailController extends Controller
 
         $registerEmail = new RegisterEmail($user);
 
-        return $registerEmail;
-        //Mail::to('ivantkd1@gmail.com')->send($registerEmail);
+        // return $registerEmail;
+        Mail::to('ivantkd1@gmail.com')->cc('email@gmail.com')->bcc('email2@gmail.com')->send($registerEmail);
 
     }
 }
