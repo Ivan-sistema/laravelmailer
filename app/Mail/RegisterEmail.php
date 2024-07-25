@@ -24,6 +24,9 @@ class RegisterEmail extends Mailable
     public function __construct(User $userI)
     {
         //
+        $this->subject('Assunto do Email');
+        $this->from('no-reply@email.com');
+        $this->replyTo('ivantkd1@gmail.com');
         $this->user= $userI;
     }
 
@@ -63,8 +66,12 @@ class RegisterEmail extends Mailable
 
     public function build()
     {
+
+
         return $this->view('Mail.registerMail', [
             'nome' => $this->user->name
+        ])->attach(__DIR__.'/../../public/assets/images/ivan.jpg', [
+            'as' => 'teste.jpg'
         ]);
     }
 }
